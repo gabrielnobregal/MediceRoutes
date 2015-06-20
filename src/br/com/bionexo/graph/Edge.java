@@ -3,9 +3,9 @@ package br.com.bionexo.graph;
 public class Edge {
 
 	private int weight;
-	private GraphNode dstNode; 
+	private Node dstNode; 
 	
-	public Edge(GraphNode toNode, int weight) {
+	public Edge(Node toNode, int weight) {
 		this.weight = weight;		
 		this.dstNode = toNode; 
 	}
@@ -18,11 +18,11 @@ public class Edge {
 		this.weight = weight;
 	}
 
-	public GraphNode getDstNode() {
+	public Node getDstNode() {
 		return dstNode;
 	}
 
-	public void setDstNode(GraphNode dstNode) {
+	public void setDstNode(Node dstNode) {
 		this.dstNode = dstNode;
 	}
 	

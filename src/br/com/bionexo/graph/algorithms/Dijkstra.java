@@ -24,8 +24,8 @@ public class Dijkstra {
 		
 		nodeList = new LinkedList<DijkstraNode>();
 		
-		for(GraphNode node : graph.getNodes()) {
-			nodeList.add(new DijkstraNode(node, 0));
+		for(Node node : graph.getNodes()) {
+			nodeList.add(new DijkstraNode((GraphNode)node, 0));
 		}		
 	}
 	
@@ -36,8 +36,8 @@ public class Dijkstra {
 		
 		Queue<DijkstraNode> heap = new PriorityQueue<DijkstraNode>(graph.getNumberOfNodes());		 
 		
-		Node _srcNode = graph.getNodeFromName(srcNodeName);
-		Node _dstNode = graph.getNodeFromName(dstNodeName);
+		Node srcNode = graph.getNodeFromName(srcNodeName);
+		Node dstNode = graph.getNodeFromName(dstNodeName);
 		 	
 		DijkstraNode srcNode = nodeList.get(0); ////MUDAR
 		
@@ -47,7 +47,7 @@ public class Dijkstra {
 		while(!heap.isEmpty()) {
 			DijkstraNode node = heap.poll();
 			
-			node.node.getEdgeList().
+			//node.node.getEdgeList().get(0).getWeight();
 			 
 		}		 
 		 
@@ -56,14 +56,14 @@ public class Dijkstra {
 	
 	
 	
-	protected class DijkstraNode extends BasicNode implements Comparable<DijkstraNode> {	
+	protected class DijkstraNode extends GraphNode implements Comparable<DijkstraNode> {	
 		
-		public Node node;
+		//public Node node;
 		public int distance;
 		
-		public DijkstraNode(Node node, int distance) {
-			super();
-			this.node = node;
+		public DijkstraNode(GraphNode node, int distance) {
+			super(node);
+			//this.node = node;
 			this.distance = distance;
 		}
 

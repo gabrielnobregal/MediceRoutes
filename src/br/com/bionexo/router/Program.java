@@ -8,6 +8,8 @@ import br.com.bionexo.graph.GraphNexo;
 import br.com.bionexo.graph.GraphNexoException;
 import br.com.bionexo.graph.GraphNexoFactory;
 import br.com.bionexo.graph.Node;
+import br.com.bionexo.graph.algorithms.DistanceMensure;
+import br.com.bionexo.graph.algorithms.TripCounter;
 
 public class Program {
 
@@ -15,10 +17,7 @@ public class Program {
 	
 	public static void main(String[] args) {			
 		
-		Scanner scanner = new Scanner(System.in);		
-		
-		
-		
+		Scanner scanner = new Scanner(System.in);
 		
 		
 		/*
@@ -35,7 +34,7 @@ public class Program {
 		System.out.print("Output #1: ");	
 		
 		try {
-			int distance = graph.getPathDistance("A", "B", "C");
+			int distance = DistanceMensure.getPathDistance(graph, "A", "B", "C");
 			System.out.println(distance);
 		} catch(GraphNexoException e) {
 			//TODO: Imprimir a exceção apenas quando o usuario quiser usar o modo debug
@@ -46,7 +45,7 @@ public class Program {
 		
 		System.out.print("Output #2: ");
 		try {
-			int distance = graph.getPathDistance("A", "D");
+			int distance = DistanceMensure.getPathDistance(graph, "A", "D");
 			System.out.println(distance);
 		} catch(GraphNexoException e) {
 			System.out.println("NO SUCH ROUTE");
@@ -56,7 +55,7 @@ public class Program {
 		
 		System.out.print("Output #3: ");
 		try {
-			int distance = graph.getPathDistance("A", "D", "C");
+			int distance = DistanceMensure.getPathDistance(graph, "A", "D", "C");
 			System.out.println(distance);
 		} catch(GraphNexoException e) {
 			System.out.println("NO SUCH ROUTE");
@@ -66,7 +65,7 @@ public class Program {
 		
 		System.out.print("Output #4: ");
 		try {
-			int distance = graph.getPathDistance("A", "E", "B", "C", "D");
+			int distance = DistanceMensure.getPathDistance(graph, "A", "E", "B", "C", "D");
 			System.out.println(distance);
 		} catch(GraphNexoException e) {
 			System.out.println("NO SUCH ROUTE");
@@ -76,7 +75,7 @@ public class Program {
 		
 		System.out.print("Output #5: ");
 		try {
-			int distance = graph.getPathDistance("A", "E", "D");
+			int distance = DistanceMensure.getPathDistance(graph, "A", "E", "D");
 			System.out.println(distance);
 		} catch(GraphNexoException e) {
 			System.out.println("NO SUCH ROUTE");
@@ -88,7 +87,7 @@ public class Program {
 		
 		System.out.print("Output #6: ");
 		try {
-			int numTrips = graph.getNumberOfTripsWithMaxStops("C", "C", 3);
+			int numTrips = TripCounter.getNumberOfTripsWithMaxStops(graph, "C", "C", 3);
 			System.out.println(numTrips);
 		} catch(GraphNexoException e) {
 			System.out.println("NO SUCH ROUTE");
@@ -99,14 +98,14 @@ public class Program {
 		
 		System.out.print("Output #7: ");
 		try {
-			int numTrips = graph.getNumberOfTripsWithExactStops("A", "C", 4);
+			int numTrips = TripCounter.getNumberOfTripsWithExactStops(graph, "A", "C", 4);
 			System.out.println(numTrips);
 		} catch(GraphNexoException e) {
 			System.out.println("NO SUCH ROUTE");
 			System.out.println(e.getCause());
 			e.printStackTrace();						
 		}
-		]
+		
 				
 				
 		/*
