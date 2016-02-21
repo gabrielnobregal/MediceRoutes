@@ -1,5 +1,9 @@
 package br.com.bionexo.graph;
 
+/**
+ * @author Gabriel Nobrega de Lima
+ */
+
 public class Edge {
 
 	private int weight;
